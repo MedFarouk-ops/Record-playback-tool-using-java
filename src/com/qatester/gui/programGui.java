@@ -80,12 +80,16 @@ public class programGui extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
-
+		
+		// button to export the test results : 
 		JButton btnNewButton_1_1 = new JButton("export test results");
-
+		// label that shows the test results
 		JLabel lblNewLabel_1 = new JLabel("List of Test results");
 		
 		JLabel lblNewLabel_4 = new JLabel("1 - test-user-defined.py : success");
+		
+		JLabel lblNewLabel_4_1 = new JLabel("test succeeded  : 3/5");
+		lblNewLabel_4_1.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -101,6 +105,10 @@ public class programGui extends JFrame {
 					.addGap(25)
 					.addComponent(lblNewLabel_4)
 					.addContainerGap(50, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_panel_1.createSequentialGroup()
+					.addContainerGap(53, Short.MAX_VALUE)
+					.addComponent(lblNewLabel_4_1, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
+					.addGap(22))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.TRAILING)
@@ -109,7 +117,9 @@ public class programGui extends JFrame {
 					.addComponent(lblNewLabel_1)
 					.addGap(18)
 					.addComponent(lblNewLabel_4)
-					.addPreferredGap(ComponentPlacement.RELATED, 360, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+					.addComponent(lblNewLabel_4_1)
+					.addGap(18)
 					.addComponent(btnNewButton_1_1)
 					.addContainerGap())
 		);
