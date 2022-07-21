@@ -33,6 +33,7 @@ import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import java.awt.Choice;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import javax.swing.JSlider;
@@ -220,20 +221,53 @@ public class ProgramGui extends JFrame {
 		JLabel lblNewLabel = new JLabel("List of Test cases ");
 
 		JCheckBox chckbxNewCheckBox = new JCheckBox("test-user-defined.py");
+		// this button is for adding new test cases
+		JButton addNewTestCase = new JButton("+");
+		addNewTestCase.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	            System.out.println("adding new test cases ...");
+	            JFrame f=new JFrame();
+	            if(qaServices.getSoftwares().size() <= 0) {
+	            	JOptionPane.showMessageDialog(f,"Please select the software to test first");
+	            }else {
+	            	JOptionPane.showMessageDialog(f,"adding new test cases");
+	            }
+		     }
+	});
+			
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap(109, Short.MAX_VALUE)
-						.addComponent(runSelectedTest).addContainerGap())
-				.addGroup(gl_panel.createSequentialGroup().addGap(74).addComponent(lblNewLabel).addContainerGap(78,
-						Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup().addGap(22)
-						.addComponent(chckbxNewCheckBox, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(32, Short.MAX_VALUE)));
-		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(18)
-						.addComponent(chckbxNewCheckBox)
-						.addPreferredGap(ComponentPlacement.RELATED, 351, Short.MAX_VALUE).addComponent(runSelectedTest)
-						.addContainerGap()));
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap(119, Short.MAX_VALUE)
+							.addComponent(runSelectedTest))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(22)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addComponent(lblNewLabel)
+									.addPreferredGap(ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+									.addComponent(addNewTestCase))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addComponent(chckbxNewCheckBox, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))))
+					.addContainerGap())
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(addNewTestCase, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(chckbxNewCheckBox)
+					.addPreferredGap(ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
+					.addComponent(runSelectedTest)
+					.addContainerGap())
+		);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);
 
@@ -253,5 +287,4 @@ public class ProgramGui extends JFrame {
 		comboBox.addItem(new ComboItem( qaServices.getSoftwares().get(index).getSoftwareName(),
 				qaServices.getSoftwares().get(index).getSoftwareName()));
 	}
-	
 }
