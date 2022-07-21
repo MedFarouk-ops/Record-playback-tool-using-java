@@ -80,49 +80,37 @@ public class programGui extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
-		
-		// button to export the test results : 
-		JButton btnNewButton_1_1 = new JButton("export test results");
+
+		// button to export the test results :
+		JButton exportResultBtn = new JButton("export test results");
+		// Action method implementation for exporting test results
+		exportResultBtn.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	            System.out.println("Exporting test result ...");
+	         }
+	      });
 		// label that shows the test results
 		JLabel lblNewLabel_1 = new JLabel("List of Test results");
-		
+
 		JLabel lblNewLabel_4 = new JLabel("1 - test-user-defined.py : success");
-		
+
 		JLabel lblNewLabel_4_1 = new JLabel("test succeeded  : 3/5");
 		lblNewLabel_4_1.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap(107, Short.MAX_VALUE)
-					.addComponent(btnNewButton_1_1)
-					.addContainerGap())
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGap(74)
-					.addComponent(lblNewLabel_1)
-					.addContainerGap(76, Short.MAX_VALUE))
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGap(25)
-					.addComponent(lblNewLabel_4)
-					.addContainerGap(50, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, gl_panel_1.createSequentialGroup()
-					.addContainerGap(53, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_4_1, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
-					.addGap(22))
-		);
-		gl_panel_1.setVerticalGroup(
-			gl_panel_1.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_1)
-					.addGap(18)
-					.addComponent(lblNewLabel_4)
-					.addPreferredGap(ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_4_1)
-					.addGap(18)
-					.addComponent(btnNewButton_1_1)
-					.addContainerGap())
-		);
+		gl_panel_1.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap(107, Short.MAX_VALUE)
+						.addComponent(exportResultBtn).addContainerGap())
+				.addGroup(gl_panel_1.createSequentialGroup().addGap(74).addComponent(lblNewLabel_1).addContainerGap(76,
+						Short.MAX_VALUE))
+				.addGroup(gl_panel_1.createSequentialGroup().addGap(25).addComponent(lblNewLabel_4).addContainerGap(50,
+						Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_panel_1.createSequentialGroup().addContainerGap(53, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_4_1, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
+						.addGap(22)));
+		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_1.createSequentialGroup().addContainerGap().addComponent(lblNewLabel_1).addGap(18)
+						.addComponent(lblNewLabel_4).addPreferredGap(ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_4_1).addGap(18).addComponent(exportResultBtn).addContainerGap()));
 		panel_1.setLayout(gl_panel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("QA UI TEST");
@@ -130,97 +118,87 @@ public class programGui extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		// add button to add a software to the list
 		JButton btnNewButton_2 = new JButton("+");
-		// label for combobox :
+		// label to select the software to test :
 		JLabel lblNewLabel_3 = new JLabel("Select the software for testing :");
-		
+		// 
 		JButton btnSelectTestRecorder = new JButton("Select Test Recorder");
-		
+		// Action method implementation for selecting the test recorder
+		btnSelectTestRecorder.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	            System.out.println("selecting test recorder...");
+	         }
+	    });
+
 		JProgressBar progressBar = new JProgressBar();
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(362)
-					.addComponent(lblNewLabel_2)
-					.addContainerGap(356, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(19)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblNewLabel_3)
-							.addContainerGap())
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup().addGap(362).addComponent(lblNewLabel_2)
+						.addContainerGap(356, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup().addGap(19).addGroup(gl_contentPane
+						.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_3).addContainerGap())
+						.addGroup(gl_contentPane.createSequentialGroup().addGroup(gl_contentPane
+								.createParallelGroup(Alignment.LEADING, false)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 193,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton_2,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-									.addComponent(btnSelectTestRecorder, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-									.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
-								.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(42)
-							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
-							.addGap(22))))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(lblNewLabel_2)
-					.addGap(25)
-					.addComponent(lblNewLabel_3)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton_2))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnSelectTestRecorder)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnNewButton)
-							.addGap(30)
-							.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(98, Short.MAX_VALUE))
-		);
+								.addPreferredGap(ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(btnSelectTestRecorder, GroupLayout.PREFERRED_SIZE, 147,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 147,
+														GroupLayout.PREFERRED_SIZE))
+										.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE))
+								.addGap(42)
+								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+								.addGap(22)))));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_2).addGap(25)
+						.addComponent(lblNewLabel_3).addPreferredGap(ComponentPlacement.UNRELATED)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNewButton_2))
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup().addComponent(btnSelectTestRecorder)
+										.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnNewButton)
+										.addGap(30).addComponent(progressBar, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addContainerGap(98, Short.MAX_VALUE)));
 
-		JButton btnNewButton_1 = new JButton("run selected tests");
-
+		JButton runSelectedTest = new JButton("run selected tests");
+		// Action method implementation for running the selected tests
+		runSelectedTest.addActionListener(new ActionListener() {
+			         public void actionPerformed(ActionEvent e) {
+			            System.out.println("running test cases...");
+			         }
+		});
+				
 		JLabel lblNewLabel = new JLabel("List of Test cases ");
-		
+
 		JCheckBox chckbxNewCheckBox = new JCheckBox("test-user-defined.py");
 		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(109, Short.MAX_VALUE)
-					.addComponent(btnNewButton_1)
-					.addContainerGap())
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(74)
-					.addComponent(lblNewLabel)
-					.addContainerGap(78, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(22)
-					.addComponent(chckbxNewCheckBox, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(32, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel)
-					.addGap(18)
-					.addComponent(chckbxNewCheckBox)
-					.addPreferredGap(ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
-					.addComponent(btnNewButton_1)
-					.addContainerGap())
-		);
+		gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap(109, Short.MAX_VALUE)
+						.addComponent(runSelectedTest).addContainerGap())
+				.addGroup(gl_panel.createSequentialGroup().addGap(74).addComponent(lblNewLabel).addContainerGap(78,
+						Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup().addGap(22)
+						.addComponent(chckbxNewCheckBox, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(32, Short.MAX_VALUE)));
+		gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createSequentialGroup().addContainerGap().addComponent(lblNewLabel).addGap(18)
+						.addComponent(chckbxNewCheckBox)
+						.addPreferredGap(ComponentPlacement.RELATED, 351, Short.MAX_VALUE).addComponent(runSelectedTest)
+						.addContainerGap()));
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);
 
