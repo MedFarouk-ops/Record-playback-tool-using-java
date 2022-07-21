@@ -122,17 +122,25 @@ public class ProgramGui extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("QA UI TEST");
 		// Combobox that contains the list of the software to test
 		JComboBox comboBox = new JComboBox();
+		// adding items to combobox (dropdown list)
+		
+		
+		
 		// add button to add a software to the list
 		JButton btnNewButton_2 = new JButton("+");
 		btnNewButton_2.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	            System.out.println("adding software to test");
+	            qaServices.addSoftwareToTest();
+	            refreshCombobox(comboBox);
 	         }
 	    });
 		
 		// label to select the software to test :
 		JLabel lblNewLabel_3 = new JLabel("Select the software for testing :");
-		// 
+		
+		//  button to select the software to test :
+		
 		JButton btnSelectTestRecorder = new JButton("Select Test Recorder");
 		// Action method implementation for selecting the test recorder
 		btnSelectTestRecorder.addActionListener(new ActionListener() {
@@ -144,54 +152,68 @@ public class ProgramGui extends JFrame {
 
 		JProgressBar progressBar = new JProgressBar();
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup().addGap(362).addComponent(lblNewLabel_2)
-						.addContainerGap(356, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup().addGap(19).addGroup(gl_contentPane
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_3).addContainerGap())
-						.addGroup(gl_contentPane.createSequentialGroup().addGroup(gl_contentPane
-								.createParallelGroup(Alignment.LEADING, false)
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(362)
+					.addComponent(lblNewLabel_2)
+					.addContainerGap(356, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(19)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblNewLabel_3)
+							.addContainerGap())
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 193,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton_2,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(btnSelectTestRecorder, GroupLayout.PREFERRED_SIZE, 147,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 147,
-														GroupLayout.PREFERRED_SIZE))
-										.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(42)
-								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
-								.addGap(22)))));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblNewLabel_2).addGap(25)
-						.addComponent(lblNewLabel_3).addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_2))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
-								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_contentPane.createSequentialGroup().addComponent(btnSelectTestRecorder)
-										.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnNewButton)
-										.addGap(30).addComponent(progressBar, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addContainerGap(98, Short.MAX_VALUE)));
+							.addPreferredGap(ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(progressBar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnSelectTestRecorder, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+							.addGap(42)
+							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+							.addGap(22))))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(lblNewLabel_2)
+					.addGap(25)
+					.addComponent(lblNewLabel_3)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton_2))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(btnSelectTestRecorder)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(btnNewButton)
+							.addGap(30)
+							.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(98, Short.MAX_VALUE))
+		);
 
 		JButton runSelectedTest = new JButton("run selected tests");
 		// Action method implementation for running the selected tests
 		runSelectedTest.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
 			            System.out.println("running test cases...");
+			            try {
+							qaServices.runTestCases();
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 			         }
 		});
 				
@@ -224,4 +246,12 @@ public class ProgramGui extends JFrame {
 	private void initComponents() {
 		this.qaServices = new QaServices();
 	}
+	
+	private void refreshCombobox(JComboBox comboBox) {
+		int index = qaServices.getSoftwares().size()-1;
+		
+		comboBox.addItem(new ComboItem( qaServices.getSoftwares().get(index).getSoftwareName(),
+				qaServices.getSoftwares().get(index).getSoftwareName()));
+	}
+	
 }
