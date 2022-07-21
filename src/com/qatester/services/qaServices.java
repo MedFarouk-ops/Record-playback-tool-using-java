@@ -129,6 +129,23 @@ public class QaServices {
 	public void setTests(List<TestCase> tests) {
 		this.tests = tests;
 	}
+
+	public String getSoftwarePath() {
+		return softwarePath;
+	}
+
+	public void setSoftwarePath(String softwarePath) {
+		this.softwarePath = softwarePath;
+	}
+
+	public String getTestRecorderPath() {
+		return testRecorderPath;
+	}
+
+	public void setTestRecorderPath(String testRecorderPath) {
+		this.testRecorderPath = testRecorderPath;
+	}
+	
 	
 	
 	

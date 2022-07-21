@@ -81,7 +81,12 @@ public class ProgramGui extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("opening test recorder");
-				qaServices.runTestRecorder();
+				JFrame f=new JFrame();
+				if(qaServices.getTestRecorderPath() == null ) {
+	            	JOptionPane.showMessageDialog(f,"Please select the test recorder first");
+	            }else {
+	            	qaServices.runTestRecorder();
+	            }
 			}
 		});
 
