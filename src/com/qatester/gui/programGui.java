@@ -80,6 +80,7 @@ public class ProgramGui extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("opening test recorder");
+				qaServices.runTestRecorder();
 			}
 		});
 

@@ -1,6 +1,7 @@
 package com.qatester.services;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.JFileChooser;
@@ -37,6 +38,21 @@ public class QaServices {
 	
 	public void runTestRecorder() {
 		// check the os type (windows or linux)
+		String osName = System.getProperty("os.name"); 
+//		System.out.println(osName);
+		if(osName.indexOf("Win") != -1) {
+			System.out.println("windows");
+			Runtime rs = Runtime.getRuntime();
+			try {
+				rs.exec(this.testRecorderPath);
+			}
+			catch (IOException e) {
+				System.out.println(e);
+			}
+			
+		}else {
+			System.out.println("linux");
+		}
 	}
 
 	public void addSoftwareToTest() {
