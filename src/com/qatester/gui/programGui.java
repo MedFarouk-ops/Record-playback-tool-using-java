@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.qatester.services.QaServices;
+
 import java.awt.FlowLayout;
 import javax.swing.JToolBar;
 import javax.swing.JRadioButton;
@@ -34,9 +37,10 @@ import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import javax.swing.JSlider;
 
-public class programGui extends JFrame {
+public class ProgramGui extends JFrame {
 
 	private JPanel contentPane;
+	private QaServices qaServices;
 
 	/**
 	 * Launch the application.
@@ -45,7 +49,7 @@ public class programGui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					programGui frame = new programGui();
+					ProgramGui frame = new ProgramGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +61,7 @@ public class programGui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public programGui() {
+	public ProgramGui() {
 		initComponents();
 		createEvents();
 
@@ -75,6 +79,7 @@ public class programGui extends JFrame {
 		JButton btnNewButton = new JButton("Open Test Recorder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("opening test recorder");
 			}
 		});
 
@@ -118,6 +123,12 @@ public class programGui extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		// add button to add a software to the list
 		JButton btnNewButton_2 = new JButton("+");
+		btnNewButton_2.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	            System.out.println("adding software to test");
+	         }
+	    });
+		
 		// label to select the software to test :
 		JLabel lblNewLabel_3 = new JLabel("Select the software for testing :");
 		// 
@@ -126,6 +137,7 @@ public class programGui extends JFrame {
 		btnSelectTestRecorder.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	            System.out.println("selecting test recorder...");
+	            qaServices.selectTestRecorder();
 	         }
 	    });
 
@@ -209,5 +221,6 @@ public class programGui extends JFrame {
 	}
 
 	private void initComponents() {
+		this.qaServices = new QaServices();
 	}
 }

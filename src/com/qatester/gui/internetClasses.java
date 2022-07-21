@@ -4,17 +4,17 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class internetClasses {
+public class InternetClasses {
 	
 	   private JFrame frame;
 	   private JLabel headerLabel;
 	   private JLabel statusLabel;
 	   private JPanel controlPanel;
-	   public internetClasses(){
+	   public InternetClasses(){
 	      prepareGUI();
 	   }
 	   public static void main(String[] args){
-		   internetClasses swingControlDemo = new internetClasses();
+		   InternetClasses swingControlDemo = new InternetClasses();
 	      swingControlDemo.showButtonDemo();
 	   }
 	   private void prepareGUI(){
