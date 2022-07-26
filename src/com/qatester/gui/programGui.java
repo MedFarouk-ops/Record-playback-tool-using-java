@@ -77,7 +77,7 @@ public class ProgramGui extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
 
-		JButton btnNewButton = new JButton("Open Test Recorder");
+		JButton btnNewButton = new JButton("Run Test Recorder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("opening test recorder");
@@ -92,7 +92,6 @@ public class ProgramGui extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.DARK_GRAY, null, null, null));
-
 		// button to export the test results :
 		JButton exportResultBtn = new JButton("export test results");
 		// Action method implementation for exporting test results
@@ -209,17 +208,17 @@ public class ProgramGui extends JFrame {
 					.addContainerGap(98, Short.MAX_VALUE))
 		);
 
-		JButton runSelectedTest = new JButton("run selected tests");
+		JButton runSelectedTest = new JButton("new test case");
 		// Action method implementation for running the selected tests
 		runSelectedTest.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
-			            System.out.println("running test cases...");
-			            try {
-							qaServices.runTestCases();
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+			            System.out.println("making new test case");
+//			            try {
+//							qaServices.runTestCases();
+//						} catch (InterruptedException e1) {
+//							// TODO Auto-generated catch block
+//							e1.printStackTrace();
+//						}
 			         }
 		});
 				
