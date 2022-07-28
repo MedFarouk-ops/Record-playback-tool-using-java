@@ -14,7 +14,7 @@ public class SoftwareToTest {
 	public SoftwareToTest(String softwareName, List<TestCase> testCases) {
 		super();
 		this.softwareName = softwareName;
-		this.testCases = testCases;
+		this.testCases = testCases; 
 	}
 
 	public String getSoftwareName() {

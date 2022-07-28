@@ -19,7 +19,7 @@ public class InternetClasses {
 	   }
 	   private void prepareGUI(){
 	      frame = new JFrame("Java Swing");
-	      frame.setSize(500,500);
+	      frame.setSize(500,500); 
 	      frame.setLayout(new GridLayout(3, 1));
 	      frame.addWindowListener(new WindowAdapter() {
 	         public void windowClosing(WindowEvent windowEvent){

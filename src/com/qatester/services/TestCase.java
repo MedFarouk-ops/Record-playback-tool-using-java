@@ -21,7 +21,7 @@ public class TestCase {
 		this.testName = testName;
 	}
 	public String getTestDescription() {
-		return testDescription;
+		return testDescription; 
 	}
 	public void setTestDescription(String testDescription) {
 		this.testDescription = testDescription;
@@ -31,6 +31,10 @@ public class TestCase {
 	}
 	public void setTestFile(String testFile) {
 		this.testFile = testFile;
+	}
+	public void execute() {
+		// execute test case
+		System.out.println("executing test cases");
 	}
 	
 }

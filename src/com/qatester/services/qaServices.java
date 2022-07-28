@@ -17,7 +17,7 @@ public class QaServices {
 	public static final String SECOND_DIRECTORY = System.getProperty("user.home") + "/Desktop/";
 
 	public QaServices() {
-		super();
+		super(); 
 	}
 
 	public void selectTestRecorder() {

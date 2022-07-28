@@ -52,7 +52,7 @@ public class ProgramGui extends JFrame {
 				try {
 					ProgramGui frame = new ProgramGui();
 					frame.setVisible(true);
-				} catch (Exception e) {
+				} catch (Exception e) { 
 					e.printStackTrace();
 				}
 			}
@@ -130,7 +130,6 @@ public class ProgramGui extends JFrame {
 		// adding items to combobox (dropdown list)
 		
 		
-		
 		// add button to add a software to the list
 		JButton btnNewButton_2 = new JButton("+");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -155,6 +154,7 @@ public class ProgramGui extends JFrame {
 	         }
 	    });
 
+		// progress bar to show the testing progress .
 		JProgressBar progressBar = new JProgressBar();
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -210,18 +210,24 @@ public class ProgramGui extends JFrame {
 
 		JButton runSelectedTest = new JButton("new test case");
 		// Action method implementation for running the selected tests
+		
 		runSelectedTest.addActionListener(new ActionListener() {
+					  int makeNewTestCase = 1 ;
 			         public void actionPerformed(ActionEvent e) {
-			            System.out.println("making new test case");
+
+			            if(makeNewTestCase == 1) {
+			            RecordingGui frame = new RecordingGui();
+			            frame.setVisible(true);
+			            makeNewTestCase -=1;
+			            System.out.println("making new test case" + makeNewTestCase);
+			            }
 //			            try {
 //							qaServices.runTestCases();
 //						} catch (InterruptedException e1) {
-//							// TODO Auto-generated catch block
 //							e1.printStackTrace();
 //						}
 			         }
 		});
-				
 		JLabel lblNewLabel = new JLabel("List of Test cases ");
 
 		JCheckBox chckbxNewCheckBox = new JCheckBox("test-user-defined.py");
@@ -285,9 +291,8 @@ public class ProgramGui extends JFrame {
 		this.qaServices = new QaServices();
 	}
 	
-	private void refreshCombobox(JComboBox comboBox) {
+	private void refreshCombobox(JComboBox<ComboItem> comboBox) {
 		int index = qaServices.getSoftwares().size()-1;
-		
 		comboBox.addItem(new ComboItem( qaServices.getSoftwares().get(index).getSoftwareName(),
 				qaServices.getSoftwares().get(index).getSoftwareName()));
 	}
