@@ -24,7 +24,9 @@ public class GlobalKeyListener implements NativeKeyListener {
     }
 
     public void nativeKeyTyped(NativeKeyEvent e) {
-        System.out.println("Key Typed: " + e.getKeyText(e.getKeyCode()));
+        System.out.println("Key Typed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
     }
     
 }
+
+// hello world
