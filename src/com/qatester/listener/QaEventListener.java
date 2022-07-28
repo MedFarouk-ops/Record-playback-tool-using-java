@@ -13,7 +13,7 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 		super();
 	}
 	
-	// Capturing Keyboard actions
+	// Capturing Keyboard actions // *********************************************************************************************************************
 	public void nativeKeyPressed(NativeKeyEvent e) {
 		System.out.println("Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
 
@@ -36,7 +36,7 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 
 	
 	
-	// Capturing mouse actions
+	// Capturing mouse actions // *********************************************************************************************************************
 	public void nativeMouseClicked(NativeMouseEvent e) {
 		System.out.println("Mouse Clicked: " + e.getClickCount());
 	}
@@ -74,5 +74,9 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 		// Add the appropriate listeners.
 		GlobalScreen.addNativeMouseListener(example);
 		GlobalScreen.addNativeMouseMotionListener(example);
+		GlobalScreen.addNativeKeyListener(example);
 	}
 }
+
+
+
