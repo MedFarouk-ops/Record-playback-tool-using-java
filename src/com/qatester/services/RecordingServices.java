@@ -7,6 +7,8 @@ import com.qatester.listener.QaEventListener;
 public class RecordingServices {
 
 	private TestCase test1;
+	private String testRecord; 
+	QaEventListener testCaseEvent = new QaEventListener();
 	public RecordingServices() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -14,21 +16,26 @@ public class RecordingServices {
 
 	public void startRecording(String title , String description) {
 		
-		String testRecord ; 
 		
-		// start recording and creating the file script
-		// first we will create an instance of the TestCase object : 
+		// start recording and creating the file script //
+		// first we will create an instance of the TestCase object : //
+		this.testRecord = " ---- ";
 		this.test1 =new TestCase();
 		test1.setTestName(title);
 		test1.setTestDescription(description);
 		// then we start recording the mouse and keyboard actions after opening the selected software to test //
 		initialiseGlobalScreen();
-		QaEventListener testCaseEvent = new QaEventListener();
+		
 		GlobalScreen.addNativeMouseListener(testCaseEvent);
 		GlobalScreen.addNativeMouseMotionListener(testCaseEvent);
 		GlobalScreen.addNativeKeyListener(testCaseEvent);
-		//  // 
 		
+		// ********** *********** ********** ***** ***** ********** ********** ******** ********** // 
+	}
+	
+	
+	public void showTestResult() {
+		System.out.println(testCaseEvent.getTestScript());
 	}
 	
 	public void initialiseGlobalScreen() {
