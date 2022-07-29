@@ -13,7 +13,8 @@ public class RecordingServices {
 
 	private TestCase test1;
 	private String testRecord; 
-	QaEventListener testCaseEvent = new QaEventListener();
+	QaEventListener testCaseEvent = new QaEventListener("");
+	private QaScreenActions qaScreenAction = new QaScreenActions();
 	public RecordingServices() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -35,7 +36,8 @@ public class RecordingServices {
 		GlobalScreen.addNativeMouseMotionListener(testCaseEvent);
 		GlobalScreen.addNativeKeyListener(testCaseEvent);
 		
-		// ********** *********** ********** ***** ***** ********** ********** ******** ********** // 
+		
+		// ********** *********** ********** ********** ********** ********** ******** ********** // 
 	}
 	
 	
