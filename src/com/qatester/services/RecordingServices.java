@@ -1,5 +1,10 @@
 package com.qatester.services;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
 import com.qatester.listener.QaEventListener;
@@ -35,8 +40,23 @@ public class RecordingServices {
 	
 	
 	public void showTestResult() {
-		System.out.println(testCaseEvent.getTestScript());
+		System.out.println("*********** Test script file is created ********** \n check your files");
+		Random rand = new Random(); //instance of random class
+	    int upperbound = 4000;
+	        //generate random values from 0-4000
+	    int int_random = rand.nextInt(upperbound); 
+		File output = new File("C:/Users/user/eclipse-workspace/QA UI TESTER/src/com/qatester/tests/TC-"+int_random+".txt");
+		try {
+			FileWriter writer = new FileWriter(output);
+			writer.write(testCaseEvent.getTestScript());
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
 	
 	public void initialiseGlobalScreen() {
 		try {
