@@ -20,7 +20,7 @@ public class QaScreenActions {
 	int WINDOW_X;
 	int WINDOW_Y;
 	int TYPE_DELAY = 0;
-	int MOUSE_DELAY = 2;
+	int MOUSE_DELAY = 1;
 	int SKILL = 0;
 	int X, Y;
 	int lastX, lastY;

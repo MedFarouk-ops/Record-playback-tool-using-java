@@ -33,8 +33,6 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 	public void nativeKeyTyped(NativeKeyEvent e) {
 		System.out.println("Key Typed: " + e.getKeyText(e.getKeyCode()));
 	}
-
-	
 	
 	// Capturing mouse actions // *********************************************************************************************************************
 	public void nativeMouseClicked(NativeMouseEvent e) {
@@ -56,27 +54,30 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 	public void nativeMouseDragged(NativeMouseEvent e) {
 		System.out.println("Mouse Dragged: " + e.getX() + ", " + e.getY());
 	}
+	
+	
 
-	public static void main(String[] args) {
-		try {
-			GlobalScreen.registerNativeHook();
-		}
-		catch (NativeHookException ex) {
-			System.err.println("There was a problem registering the native hook.");
-			System.err.println(ex.getMessage());
-
-			System.exit(1);
-		}
-
-		// Construct the example object.
-		QaEventListener example = new QaEventListener();
-
-		// Add the appropriate listeners.
-		GlobalScreen.addNativeMouseListener(example);
-		GlobalScreen.addNativeMouseMotionListener(example);
-		GlobalScreen.addNativeKeyListener(example);
-	}
+//	public static void main(String[] args) {
+//		try {
+//			GlobalScreen.registerNativeHook();
+//		}
+//		catch (NativeHookException ex) {
+//			System.err.println("There was a problem registering the native hook.");
+//			System.err.println(ex.getMessage());
+//
+//			System.exit(1);
+//		}
+//
+//		// Construct the example object.
+//		QaEventListener example = new QaEventListener();
+//
+//		// Add the appropriate listeners.
+//		GlobalScreen.addNativeMouseListener(example);
+//		GlobalScreen.addNativeMouseMotionListener(example);
+//		GlobalScreen.addNativeKeyListener(example);
+//	}
+	
+	
 }
-
 
 

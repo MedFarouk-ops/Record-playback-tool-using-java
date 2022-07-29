@@ -212,7 +212,7 @@ public class ProgramGui extends JFrame {
 		// Action method implementation for running the selected tests
 		
 		runSelectedTest.addActionListener(new ActionListener() {
-					  int makeNewTestCase = 1 ;
+					 int makeNewTestCase = 1 ;
 			         public void actionPerformed(ActionEvent e) {
 
 			            if(makeNewTestCase == 1) {
