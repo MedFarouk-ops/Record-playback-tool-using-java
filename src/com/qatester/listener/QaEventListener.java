@@ -48,11 +48,15 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 	public void nativeMouseClicked(NativeMouseEvent e) {
 		System.out.println("Mouse Clicked: " + e.getClickCount());
 //		this.testScript += "Mouse Clicked: " + e.getClickCount() + "\n";
+		this.testScript += "qaScreenAction.click();\n";
+		
+		
 	}
 
 	public void nativeMousePressed(NativeMouseEvent e) {
 		System.out.println("Mouse Pressed: " + e.getButton());
 //		this.testScript += "Mouse Pressed: " + e.getButton()+ "\n";
+		this.testScript += "qaScreenAction.clickNhold(true);\n";
 	}
 
 	public void nativeMouseReleased(NativeMouseEvent e) {
@@ -70,11 +74,10 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 
 	public void nativeMouseDragged(NativeMouseEvent e) {
 		System.out.println("Mouse Dragged: " + e.getX() + ", " + e.getY());
-		this.testScript += "qaScreenAction.clickNhold(true);\n" + "qaScreenAction.gotoxy("+e.getX() + ", " + e.getY() + ");\n" ;
+		this.testScript += 	"qaScreenAction.gotoxy("+e.getX() + ", " + e.getY() + ");\n" ;
 	}
  
 
-	
 	//************************************************************//
 	
 	public String getTestScript() {
