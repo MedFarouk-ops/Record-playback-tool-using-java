@@ -39,13 +39,11 @@ public class QaScreenActions {
 	public static void main(String[] args) {
 		QaScreenActions qaScreenAction =  new QaScreenActions();
 		qaScreenAction.initialize();
-
 	}
 	
 	public void runTestCase() {
 		QaScreenActions qaScreenAction =  new QaScreenActions();
 		qaScreenAction.initialize();
-		
 		
 	}
 
