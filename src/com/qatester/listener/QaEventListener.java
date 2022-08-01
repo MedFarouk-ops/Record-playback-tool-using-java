@@ -23,7 +23,9 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 	// Capturing Keyboard actions // ********************************************************************************************************************* //
 	public void nativeKeyPressed(NativeKeyEvent e) {
 		System.out.println("Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
-		this.testScript += "Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()) + "\n";
+//		this.testScript += "Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()) + "\n";
+		this.testScript += "qaScreenAction.type(\""+ NativeKeyEvent.getKeyText(e.getKeyCode()) + "\");";
+		
 		if (e.getKeyCode() == NativeKeyEvent.VC_ESCAPE) {
             		try {
                 		GlobalScreen.unregisterNativeHook();
@@ -35,7 +37,7 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 
 	public void nativeKeyReleased(NativeKeyEvent e) {
 		System.out.println("Key Released: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
-		this.testScript += "Key Released: " + NativeKeyEvent.getKeyText(e.getKeyCode())+ "\n";
+//		this.testScript += "Key Released: " + NativeKeyEvent.getKeyText(e.getKeyCode())+ "\n";
 		
 	}
 
@@ -55,21 +57,20 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 
 	public void nativeMousePressed(NativeMouseEvent e) {
 		System.out.println("Mouse Pressed: " + e.getButton());
-//		this.testScript += "Mouse Pressed: " + e.getButton()+ "\n";
-		this.testScript += "qaScreenAction.clickNhold(true);\n";
+		//this.testScript += "Mouse Pressed: " + e.getButton()+ "\n";
+		this.testScript += "qaScreenAction.MYROBOT.mousePress(16);\n";
 	}
 
 	public void nativeMouseReleased(NativeMouseEvent e) {
 		System.out.println("Mouse Released: " + e.getButton());
 //		this.testScript += "Mouse Released: " + e.getButton()+ "\n";
-		this.testScript += "qaScreenAction.clickNhold(false);\n";
-		
+		this.testScript += "qaScreenAction.click();\n";
+		this.testScript += "qaScreenAction.MYROBOT.mouseRelease(16);";	
 	}
 
 	public void nativeMouseMoved(NativeMouseEvent e) {
 		System.out.println("Mouse Moved: " + e.getX() + ", " + e.getY());
 		this.testScript+= "qaScreenAction.gotoxy("+e.getX() + ", " + e.getY() + ");\n" ; 
-		 
 	}
 
 	public void nativeMouseDragged(NativeMouseEvent e) {
@@ -89,5 +90,4 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 	}
 	
 }
-
 
