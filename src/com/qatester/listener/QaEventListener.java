@@ -24,8 +24,15 @@ public class QaEventListener  implements NativeMouseInputListener , NativeKeyLis
 	public void nativeKeyPressed(NativeKeyEvent e) {
 		System.out.println("Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
 //		this.testScript += "Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()) + "\n";
-		this.testScript += "qaScreenAction.type(\""+ NativeKeyEvent.getKeyText(e.getKeyCode()) + "\");";
 		
+		if( NativeKeyEvent.getKeyText(e.getKeyCode()) == "Backspace" ) {
+			this.testScript += "qaScreenAction.backspace();";
+		}else if( NativeKeyEvent.getKeyText(e.getKeyCode()) == "Space" ){
+			this.testScript += "qaScreenAction.type(\" \");";
+		}
+		else {
+			this.testScript += "qaScreenAction.type(\""+ NativeKeyEvent.getKeyText(e.getKeyCode()) + "\");";
+		}
 		if (e.getKeyCode() == NativeKeyEvent.VC_ESCAPE) {
             		try {
                 		GlobalScreen.unregisterNativeHook();

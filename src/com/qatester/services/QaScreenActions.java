@@ -19,8 +19,8 @@ public class QaScreenActions {
 	int SCREEN_Y;
 	int WINDOW_X;
 	int WINDOW_Y;
-	int TYPE_DELAY = 0;
-	int MOUSE_DELAY = 3;
+	int TYPE_DELAY = 20;
+	int MOUSE_DELAY = 1;
 	int SKILL = 0;
 	int X, Y;
 	int lastX, lastY;
@@ -42,6 +42,12 @@ public class QaScreenActions {
 
 	}
 	
+	public void runTestCase() {
+		QaScreenActions qaScreenAction =  new QaScreenActions();
+		qaScreenAction.initialize();
+		
+		
+	}
 
 	void go() {
 		initialize();
