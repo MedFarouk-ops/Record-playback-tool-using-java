@@ -1,3 +1,3 @@
 # QA-TESTER
-Screen action input recorder using java.
+Record playback tool using java.
 record test script and replay them.
